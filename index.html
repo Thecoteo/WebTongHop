@@ -128,14 +128,14 @@
     var container = document.getElementById('app-viewer-container');
     var personalContent = document.getElementById('personal-content');
     var personalTitle = document.getElementById('personal-title');
-    // Ẩn hoàn toàn cả ba trước
-    if(container) { container.style.display = 'none'; container.innerHTML = ''; }
-    if(personalContent) personalContent.style.display = 'none';
-    if(personalTitle) personalTitle.style.display = 'none';
+    // Ẩn tất cả trước
+    if (container) { container.style.display = 'none'; container.innerHTML = ''; }
+    if (personalContent) personalContent.style.display = 'none';
+    if (personalTitle) personalTitle.style.display = 'none';
     // Hiển thị đúng mục được chọn
-    if(app === 'drawing') {
+    if (app === 'drawing') {
       var iframe = document.createElement('iframe');
-      iframe.src = '../../Drawing App JavaScript/Drawing App JavaScript/indexDraw.html';
+      iframe.src = 'indexDraw.html'; // <-- SỬA LẠI ĐƯỜNG DẪN
       iframe.style.width = '1000px';
       iframe.style.height = '600px';
       iframe.style.borderRadius = '40px';
@@ -145,9 +145,9 @@
       iframe.setAttribute('allowfullscreen', '');
       container.appendChild(iframe);
       container.style.display = 'flex';
-    } else if(app === 'memory') {
+    } else if (app === 'memory') {
       var iframe = document.createElement('iframe');
-      iframe.src = '../../Memory Cards Game [Demo 1]/Memory Cards Game [Demo 1]/indexMemory.html';
+      iframe.src = 'indexMemory.html'; // <-- SỬA LẠI ĐƯỜNG DẪN
       iframe.style.width = '1000px';
       iframe.style.height = '600px';
       iframe.style.borderRadius = '40px';
@@ -157,9 +157,9 @@
       iframe.setAttribute('allowfullscreen', '');
       container.appendChild(iframe);
       container.style.display = 'flex';
-    } else if(app === 'personal') {
-      if(personalTitle) personalTitle.style.display = 'block';
-      if(personalContent) personalContent.style.display = 'flex';
+    } else if (app === 'personal') {
+      if (personalTitle) personalTitle.style.display = 'block';
+      if (personalContent) personalContent.style.display = 'flex';
     }
     setActiveMenu(app);
   }
