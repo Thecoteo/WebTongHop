@@ -1,175 +1,46 @@
+const sidebarToggleBtns = document.querySelectorAll(".sidebar-toggle");
+const sidebar = document.querySelector(".sidebar");
+const searchForm = document.querySelector(".search-form");
+const themeToggleBtn = document.querySelector(".theme-toggle");
+const themeIcon = themeToggleBtn.querySelector(".theme-icon");
+const menuLinks = document.querySelectorAll(".menu-link");
 
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Sidebar Menu | CodingNepal</title>
-          <link rel="stylesheet" href="style.css" />
-          <!-- Linking Google fonts for icons -->
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
-          <!-- SwiperJS CSS -->
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-        </head>
-        <body>
-          <!-- Navbar -->
-          <nav class="site-nav">
-            <button class="sidebar-toggle">
-              <span class="material-symbols-rounded">menu</span>
-            </button>
-          </nav>
+// Updates the theme icon based on current theme and sidebar state
+const updateThemeIcon = () => {
+  const isDark = document.body.classList.contains("dark-theme");
+  themeIcon.textContent = sidebar.classList.contains("collapsed") ? (isDark ? "light_mode" : "dark_mode") : "dark_mode";
+};
 
-          <div class="container">
-            <!-- Sidebar -->
-            <aside class="sidebar collapsed">
-              <!-- Sidebar header -->
-              <div class="sidebar-header">
-                <img src="logo.png" alt="CodingNepal" class="header-logo" />
-                <button class="sidebar-toggle">
-                  <span class="material-symbols-rounded">chevron_left</span>
-                </button>
-              </div>
+// Apply dark theme if saved or system prefers, then update icon
+const savedTheme = localStorage.getItem("theme");
+const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const shouldUseDarkTheme = savedTheme === "dark" || (!savedTheme && systemPrefersDark);
 
-              <div class="sidebar-content">
-                <!-- Search Form -->
-                <form action="#" class="search-form">
-                  <span class="material-symbols-rounded">search</span>
-                  <input type="search" placeholder="Search..." required />
-                </form>
+document.body.classList.toggle("dark-theme", shouldUseDarkTheme);
+updateThemeIcon();
 
-                <!-- Sidebar Menu -->
-                <ul class="menu-list">
-                  <li class="menu-item">
-                    <a href="#" class="menu-link active" data-menu="personal">
-                      <span class="material-symbols-rounded">dashboard</span>
-                      <span class="menu-label">Thông tin cá nhân</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#" class="menu-link" data-menu="drawing" onclick="showApp('drawing')">
-                      <span class="material-symbols-rounded">brush</span>
-                      <span class="menu-label">Vẽ vời</span>
-                    </a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="#" class="menu-link" data-menu="memory" onclick="showApp('memory')">
-                      <span class="material-symbols-rounded">memory</span>
-                      <span class="menu-label">Lật thẻ</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+// Toggle between themes on theme button click
+themeToggleBtn.addEventListener("click", () => {
+  const isDark = document.body.classList.toggle("dark-theme");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+  updateThemeIcon();
+});
 
-              <!-- Sidebar Footer -->
-              <div class="sidebar-footer">
-                <button class="theme-toggle">
-                  <div class="theme-label">
-                    <span class="theme-icon material-symbols-rounded">dark_mode</span>
-                    <span class="theme-text">Dark Mode</span>
-                  </div>
-                  <div class="theme-toggle-track">
-                    <div class="theme-toggle-indicator"></div>
-                  </div>
-                </button>
-              </div>
-            </aside>
+// Toggle sidebar collapsed state on buttons click
+sidebarToggleBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+    updateThemeIcon();
+  });
+});
 
-            <!-- Site main content -->
-            <div class="main-content">
-              <h1 class="page-title" id="personal-title">Thông tin cá nhân</h1>
-              <div class="highlight-link" id="personal-highlight" style="display:none;">
-                <a href="../../indexPerson.html" class="menu-link">
-                  <span class="material-symbols-rounded">person</span>
-                  <span class="menu-label">Cùng tìm hiểu về tôi nhé!</span>
-                </a>
-              </div>
-              <div class="app-viewer-container" id="app-viewer-container" style="display:none;"></div>
-              <div id="personal-content" style="display: flex; justify-content: center; align-items: center;">
-                <iframe id="personal-iframe" src="../../indexPerson.html" frameborder="0" allowfullscreen style="width:1200px;max-width:100vw;height:800px;max-height:80vh;border-radius:40px;background:#fff;display:block;"></iframe>
-              </div>
-            </div>
-          </div>
+// Expand the sidebar when the search form is clicked
+searchForm.addEventListener("click", () => {
+  if (sidebar.classList.contains("collapsed")) {
+    sidebar.classList.remove("collapsed");
+    searchForm.querySelector("input").focus();
+  }
+});
 
-          <script src="script.js"></script>
-          <!-- SwiperJS -->
-          <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-          <script>
-            const swiper = new Swiper('.swiper', {
-              slidesPerView: 3,
-              spaceBetween: 30,
-              navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              },
-              pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-              },
-              loop: true,
-            });
-          </script>
-          <script>
-      function setActiveMenu(menu) {
-        var menuLinks = document.querySelectorAll('.menu-link');
-        menuLinks.forEach(function(link) {
-          link.classList.remove('active');
-        });
-        var target = null;
-        if(menu === 'personal') {
-          target = document.querySelector('.menu-link[data-menu="personal"]');
-        } else if(menu === 'drawing') {
-          target = document.querySelector('.menu-link[data-menu="drawing"]');
-        } else if(menu === 'memory') {
-          target = document.querySelector('.menu-link[data-menu="memory"]');
-        }
-        if(target) target.classList.add('active');
-      }
-      function showApp(app) {
-        var container = document.getElementById('app-viewer-container');
-        var personalContent = document.getElementById('personal-content');
-        var personalTitle = document.getElementById('personal-title');
-        // Ẩn tất cả trước
-        if (container) { container.style.display = 'none'; container.innerHTML = ''; }
-        if (personalContent) personalContent.style.display = 'none';
-        if (personalTitle) personalTitle.style.display = 'none';
-        // Hiển thị đúng mục được chọn
-        if (app === 'drawing') {
-          var iframe = document.createElement('iframe');
-          iframe.src = 'indexDraw.html'; // <-- SỬA LẠI ĐƯỜNG DẪN
-          iframe.style.width = '1000px';
-          iframe.style.height = '600px';
-          iframe.style.borderRadius = '40px';
-          iframe.style.background = '#fff';
-          iframe.style.display = 'block';
-          iframe.setAttribute('frameborder', '0');
-          iframe.setAttribute('allowfullscreen', '');
-          container.appendChild(iframe);
-          container.style.display = 'flex';
-        } else if (app === 'memory') {
-          var iframe = document.createElement('iframe');
-          iframe.src = 'indexMemory.html'; // <-- SỬA LẠI ĐƯỜNG DẪN
-          iframe.style.width = '1000px';
-          iframe.style.height = '600px';
-          iframe.style.borderRadius = '40px';
-          iframe.style.background = '#fff';
-          iframe.style.display = 'block';
-          iframe.setAttribute('frameborder', '0');
-          iframe.setAttribute('allowfullscreen', '');
-          container.appendChild(iframe);
-          container.style.display = 'flex';
-        } else if (app === 'personal') {
-          if (personalTitle) personalTitle.style.display = 'block';
-          if (personalContent) personalContent.style.display = 'flex';
-        }
-        setActiveMenu(app);
-      }
-      function setupPersonalMenu() {
-        var dashboardMenu = document.querySelector('.menu-link[data-menu="personal"]');
-        if(dashboardMenu) {
-          dashboardMenu.onclick = function() { showApp('personal'); };
-        }
-      }
-      setupPersonalMenu();
-      </script>
-        </body>
-      </html>
+// Expand sidebar by default on large screens
+if (window.innerWidth > 768) sidebar.classList.remove("collapsed");
