@@ -78,15 +78,15 @@
       <div class="main-content">
         <h1 class="page-title" id="personal-title">Thông tin cá nhân</h1>
         <div class="highlight-link" id="personal-highlight" style="display:none;">
-          <a href="../../index.html" class="menu-link">
+          <a href="../../indexPerson.html" class="menu-link">
             <span class="material-symbols-rounded">person</span>
             <span class="menu-label">Cùng tìm hiểu về tôi nhé!</span>
           </a>
         </div>
-        <div id="personal-content" style="display: flex; justify-content: center; align-items: center;">
-          <iframe id="personal-iframe" src="../../index.html" frameborder="0" allowfullscreen style="width:1200px;max-width:100vw;height:800px;max-height:80vh;border-radius:40px;background:#fff;display:block;"></iframe>
-        </div>
         <div class="app-viewer-container" id="app-viewer-container" style="display:none;"></div>
+        <div id="personal-content" style="display: flex; justify-content: center; align-items: center;">
+          <iframe id="personal-iframe" src="../../indexPerson.html" frameborder="0" allowfullscreen style="width:1200px;max-width:100vw;height:800px;max-height:80vh;border-radius:40px;background:#fff;display:block;"></iframe>
+        </div>
       </div>
     </div>
 
@@ -128,50 +128,38 @@ function showApp(app) {
   var container = document.getElementById('app-viewer-container');
   var personalContent = document.getElementById('personal-content');
   var personalTitle = document.getElementById('personal-title');
-
-  // Ẩn tất cả trước
-  if (container) {
-    container.style.display = 'none';
-    container.innerHTML = '';
-  }
-  if (personalContent) personalContent.style.display = 'none';
-  if (personalTitle) personalTitle.style.display = 'none';
-
+  // Ẩn hoàn toàn cả ba trước
+  if(container) { container.style.display = 'none'; container.innerHTML = ''; }
+  if(personalContent) personalContent.style.display = 'none';
+  if(personalTitle) personalTitle.style.display = 'none';
   // Hiển thị đúng mục được chọn
-  if (app === 'drawing') {
-    if (container) {
-      var iframe = document.createElement('iframe');
-      iframe.src = '../../Drawing App JavaScript/Drawing App JavaScript/indexDraw.html';
-      iframe.style.width = '1000px';
-      iframe.style.height = '600px';
-      iframe.style.borderRadius = '40px';
-      iframe.style.background = '#fff';
-      iframe.style.display = 'block';
-      iframe.setAttribute('frameborder', '0');
-      iframe.setAttribute('allowfullscreen', '');
-      container.appendChild(iframe);
-      container.style.display = 'flex';
-    }
-  } else if (app === 'memory') {
-    if (container) {
-      var iframe = document.createElement('iframe');
-      iframe.src = '../../Memory Cards Game [Demo 1]/Memory Cards Game [Demo 1]/indexMemory.html';
-      iframe.style.width = '1000px';
-      iframe.style.height = '600px';
-      iframe.style.borderRadius = '40px';
-      iframe.style.background = '#fff';
-      iframe.style.display = 'block';
-      iframe.setAttribute('frameborder', '0');
-      iframe.setAttribute('allowfullscreen', '');
-      container.appendChild(iframe);
-      container.style.display = 'flex';
-    }
-  } else if (app === 'personal') {
-    if (personalTitle) personalTitle.style.display = 'block';
-    if (personalContent) personalContent.style.display = 'flex';
-  } else {
-    if (personalContent) personalContent.style.display = 'none';
-    if (personalTitle) personalTitle.style.display = 'none';
+  if(app === 'drawing') {
+    var iframe = document.createElement('iframe');
+    iframe.src = '../../Drawing App JavaScript/Drawing App JavaScript/indexDraw.html';
+    iframe.style.width = '1000px';
+    iframe.style.height = '600px';
+    iframe.style.borderRadius = '40px';
+    iframe.style.background = '#fff';
+    iframe.style.display = 'block';
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allowfullscreen', '');
+    container.appendChild(iframe);
+    container.style.display = 'flex';
+  } else if(app === 'memory') {
+    var iframe = document.createElement('iframe');
+    iframe.src = '../../Memory Cards Game [Demo 1]/Memory Cards Game [Demo 1]/indexMemory.html';
+    iframe.style.width = '1000px';
+    iframe.style.height = '600px';
+    iframe.style.borderRadius = '40px';
+    iframe.style.background = '#fff';
+    iframe.style.display = 'block';
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allowfullscreen', '');
+    container.appendChild(iframe);
+    container.style.display = 'flex';
+  } else if(app === 'personal') {
+    if(personalTitle) personalTitle.style.display = 'block';
+    if(personalContent) personalContent.style.display = 'flex';
   }
   setActiveMenu(app);
 }
