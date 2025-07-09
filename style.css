@@ -392,7 +392,7 @@ body.dark-theme .theme-toggle-indicator {
 
 .app-viewer-container {
   width: 1000px;
-  height: 600px;
+  height: 950px; /* hoặc lớn hơn nếu cần */
   margin: 40px auto 0 auto;
   background: #111627;
   border-radius: 40px;
