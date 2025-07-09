@@ -78,14 +78,14 @@
             <div class="main-content">
               <h1 class="page-title" id="personal-title">Thông tin cá nhân</h1>
               <div class="highlight-link" id="personal-highlight" style="display:none;">
-                <a href="../../indexPerson.html" class="menu-link">
+                <a href="/WebTongHop/indexPerson.html" class="menu-link">
                   <span class="material-symbols-rounded">person</span>
                   <span class="menu-label">Cùng tìm hiểu về tôi nhé!</span>
                 </a>
               </div>
               <div class="app-viewer-container" id="app-viewer-container" style="display:none;"></div>
               <div id="personal-content" style="display: flex; justify-content: center; align-items: center;">
-                <iframe id="personal-iframe" src="../../indexPerson.html" frameborder="0" allowfullscreen style="width:1200px;max-width:100vw;height:800px;max-height:80vh;border-radius:40px;background:#fff;display:block;"></iframe>
+                <iframe id="personal-iframe" src="/WebTongHop/indexPerson.html" frameborder="0" allowfullscreen style="width:1200px;max-width:100vw;height:800px;max-height:80vh;border-radius:40px;background:#fff;display:block;"></iframe>
               </div>
             </div>
           </div>
@@ -135,7 +135,7 @@
         // Hiển thị đúng mục được chọn
         if (app === 'drawing') {
           var iframe = document.createElement('iframe');
-          iframe.src = 'indexDraw.html'; // <-- SỬA LẠI ĐƯỜNG DẪN
+          iframe.src = '/WebTongHop/indexDraw.html';
           iframe.style.width = '1000px';
           iframe.style.height = '600px';
           iframe.style.borderRadius = '40px';
@@ -147,7 +147,7 @@
           container.style.display = 'flex';
         } else if (app === 'memory') {
           var iframe = document.createElement('iframe');
-          iframe.src = 'indexMemory.html'; // <-- SỬA LẠI ĐƯỜNG DẪN
+          iframe.src = '/WebTongHop/indexMemory.html';
           iframe.style.width = '1000px';
           iframe.style.height = '600px';
           iframe.style.borderRadius = '40px';
