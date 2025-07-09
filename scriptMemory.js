@@ -53,7 +53,7 @@
         cards.forEach((card, i) => {
             card.classList.remove("flip");
             let imgTag = card.querySelector(".back-view img");
-            imgTag.src = `img-${arr[i]}.png`;
+            imgTag.src = `/WebTongHop/img-${arr[i]}.png`;
             card.addEventListener("click", flipCard);
         });
     }
