@@ -57,6 +57,12 @@
                       <span class="menu-label">Lật thẻ</span>
                     </a>
                   </li>
+                  <li class="menu-item">
+                    <a href="#" class="menu-link" data-menu="snake" onclick="showApp('snake')">
+                      <span class="material-symbols-rounded">sports_esports</span>
+                      <span class="menu-label">Rắn săn mồi</span>
+                    </a>
+                  </li>
                 </ul>
               </div>
 
@@ -121,6 +127,8 @@
           target = document.querySelector('.menu-link[data-menu="drawing"]');
         } else if(menu === 'memory') {
           target = document.querySelector('.menu-link[data-menu="memory"]');
+        } else if(menu === 'snake') {
+          target = document.querySelector('.menu-link[data-menu="snake"]');
         }
         if(target) target.classList.add('active');
       }
@@ -148,6 +156,18 @@
         } else if (app === 'memory') {
           var iframe = document.createElement('iframe');
           iframe.src = '/WebTongHop/indexMemory.html';
+          iframe.style.width = '1000px';
+          iframe.style.height = '600px';
+          iframe.style.borderRadius = '40px';
+          iframe.style.background = '#fff';
+          iframe.style.display = 'block';
+          iframe.setAttribute('frameborder', '0');
+          iframe.setAttribute('allowfullscreen', '');
+          container.appendChild(iframe);
+          container.style.display = 'flex';
+        } else if (app === 'snake') {
+          var iframe = document.createElement('iframe');
+          iframe.src = '/WebTongHop/indexSnake.html';
           iframe.style.width = '1000px';
           iframe.style.height = '600px';
           iframe.style.borderRadius = '40px';
