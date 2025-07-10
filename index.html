@@ -75,6 +75,12 @@
                       <span class="menu-label">Image Editor</span>
                     </a>
                   </li>
+                  <li class="menu-item">
+                    <a href="#" class="menu-link" data-menu="hangman" onclick="showApp('hangman')">
+                      <span class="material-symbols-rounded">person</span>
+                      <span class="menu-label">Hangman Game</span>
+                    </a>
+                  </li>
                 </ul>
               </div>
 
@@ -145,6 +151,8 @@
           target = document.querySelector('.menu-link[data-menu="piano"]');
         } else if(menu === 'image-editor') {
           target = document.querySelector('.menu-link[data-menu="image-editor"]');
+        } else if(menu === 'hangman') {
+          target = document.querySelector('.menu-link[data-menu="hangman"]');
         }
         if(target) target.classList.add('active');
       }
@@ -209,6 +217,18 @@
         } else if (app === 'image-editor') {
           iframe = document.createElement('iframe');
           iframe.src = 'indexImage.html';
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          iframe.style.borderRadius = '40px';
+          iframe.style.background = '#fff';
+          iframe.style.display = 'block';
+          iframe.setAttribute('frameborder', '0');
+          iframe.setAttribute('allowfullscreen', '');
+          container.appendChild(iframe);
+          container.style.display = 'flex';
+        } else if (app === 'hangman') {
+          iframe = document.createElement('iframe');
+          iframe.src = 'indexHang.html';
           iframe.style.width = '100%';
           iframe.style.height = '100%';
           iframe.style.borderRadius = '40px';
