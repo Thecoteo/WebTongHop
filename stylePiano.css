@@ -14,7 +14,7 @@ body {
   background: #E3F2FD;
 }
 .wrapper {
-  padding: 35px 40px;
+  padding: 35px 60px; /* Increased horizontal padding for more space */
   border-radius: 20px;
   background: #141414;
 }
@@ -23,13 +23,16 @@ body {
   color: #B2B2B2;
   align-items: center;
   justify-content: space-between;
+  gap: 30px; /* Add gap for more spacing between columns */
 }
 header h2 {
   font-size: 1.6rem;
+  margin-right: 40px; /* Add space after title */
 }
 header .column {
   display: flex;
   align-items: center;
+  margin-right: 25px; /* Add space between columns */
 }
 header span {
   font-weight: 500;
@@ -67,10 +70,35 @@ header input {
   left: 35px;
   background: #fff;
 }
+header .auto-checkbox input {
+  height: 30px;
+  width: 60px;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+  background: #4B4B4B;
+}
+header .auto-checkbox input::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #8c8c8c;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+header .auto-checkbox input:checked::before {
+  left: 35px;
+  background: #fff;
+}
 .piano-keys {
   display: flex;
   list-style: none;
   margin-top: 40px;
+  justify-content: center; /* Center the keys horizontally */
 }
 .piano-keys .key {
   cursor: pointer;
