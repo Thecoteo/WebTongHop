@@ -23,9 +23,6 @@ questionCounter.style.fontWeight = 'bold';
 questionCounter.style.marginBottom = '10px';
 container.insertBefore(questionCounter, container.firstChild);
 
-function updateQuestionCounter() {
-    questionCounter.innerText = `Câu ${currentIndex + 1} / ${totalQuestions}`;
-}
 
 const resetGame = () => {
     // Ressetting game variables and UI elements
