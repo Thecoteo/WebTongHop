@@ -13,16 +13,7 @@ const maxGuesses = 6;
 let currentIndex = 0;
 const totalQuestions = wordList.length;
 
-// Thêm phần tử hiển thị số lượng câu hỏi vào HTML (nếu chưa có)
-const container = document.querySelector('.container');
-let questionCounter = document.createElement('div');
-questionCounter.className = 'question-counter';
-questionCounter.style.textAlign = 'center';
-questionCounter.style.width = '100%';
-questionCounter.style.fontWeight = 'bold';
-questionCounter.style.marginBottom = '10px';
-container.insertBefore(questionCounter, container.firstChild);
-
+// Xóa phần tạo và cập nhật questionCounter
 
 const resetGame = () => {
     // Ressetting game variables and UI elements
@@ -44,7 +35,7 @@ const getRandomWord = () => {
     currentDisplay = display;
     document.querySelector(".hint-text b").innerText = hint;
     resetGame();
-    updateQuestionCounter();
+    // Không cần gọi updateQuestionCounter() khi bắt đầu game
 }
 
 const gameOver = (isVictory) => {
@@ -88,8 +79,7 @@ for (let i = 97; i <= 122; i++) {
     button.addEventListener("click", (e) => initGame(e.target, String.fromCharCode(i)));
 }
 
-// Đảm bảo gọi updateQuestionCounter() khi bắt đầu game
-updateQuestionCounter();
+// Không cần gọi updateQuestionCounter() khi bắt đầu game
 
 getRandomWord();
 playAgainBtn.addEventListener("click", getRandomWord);
