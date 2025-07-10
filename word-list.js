@@ -1,82 +1,63 @@
 const wordList = [
-    {
-        word: "aodai",
-        hint: "Trang phục truyền thống của phụ nữ Việt Nam."
-    },
-    {
-        word: "hue",
-        hint: "Kinh đô cổ nổi tiếng với sông Hương, cầu Tràng Tiền."
-    },
-    {
-        word: "halong",
-        hint: "Vịnh nổi tiếng với hàng nghìn đảo đá, di sản thiên nhiên thế giới."
-    },
-    {
-        word: "banhchung",
-        hint: "Món bánh truyền thống không thể thiếu vào dịp Tết Nguyên Đán."
-    },
-    {
-        word: "trungthu",
-        hint: "Lễ hội dành cho thiếu nhi, thường có múa lân và đèn ông sao."
-    },
-    {
-        word: "hanoi",
-        hint: "Thủ đô ngàn năm văn hiến của Việt Nam."
-    },
-    {
-        word: "caotrang",
-        hint: "Loại nón truyền thống thường thấy ở miền Bắc."
-    },
-    {
-        word: "dantranh",
-        hint: "Nhạc cụ dân tộc với nhiều dây, thường dùng trong nhạc truyền thống."
-    },
-    {
-        word: "phoco",
-        hint: "Khu phố nổi tiếng với kiến trúc cổ ở Hà Nội."
-    },
-    {
-        word: "saigon",
-        hint: "Tên gọi cũ của thành phố Hồ Chí Minh."
-    },
-    {
-        word: "chualinhung",
-        hint: "Ngôi chùa nổi tiếng ở Đà Nẵng, có tượng Phật Quan Âm lớn."
-    },
-    {
-        word: "caodai",
-        hint: "Tôn giáo đặc trưng xuất phát từ Tây Ninh."
-    },
-    {
-        word: "tugiac",
-        hint: "Tên gọi khác của chiếc nón lá truyền thống."
-    },
-    {
-        word: "hoian",
-        hint: "Phố cổ nổi tiếng với đèn lồng và di sản thế giới."
-    },
-    {
-        word: "bentre",
-        hint: "Tỉnh miền Tây nổi tiếng với dừa."
-    },
-    {
-        word: "cuchitunnel",
-        hint: "Địa đạo nổi tiếng ở miền Nam, di tích lịch sử thời chiến tranh."
-    },
-    {
-        word: "tugom",
-        hint: "Làng nghề truyền thống nổi tiếng ở Bát Tràng."
-    },
-    {
-        word: "caolanh",
-        hint: "Thành phố thuộc tỉnh Đồng Tháp, nổi tiếng với sen."
-    },
-    {
-        word: "banhxeo",
-        hint: "Món bánh đặc sản miền Trung và miền Nam, vỏ giòn, nhân tôm thịt."
-    },
-    {
-        word: "chungcake",
-        hint: "Tên tiếng Anh của món bánh truyền thống ngày Tết."
-    },
+    { word: "aodai", hint: "Trang phục truyền thống của phụ nữ Việt Nam." },
+    { word: "hue", hint: "Kinh đô cổ nổi tiếng với sông Hương, cầu Tràng Tiền." },
+    { word: "halong", hint: "Vịnh nổi tiếng với hàng nghìn đảo đá, di sản thiên nhiên thế giới." },
+    { word: "banhchung", hint: "Món bánh truyền thống không thể thiếu vào dịp Tết Nguyên Đán." },
+    { word: "trungthu", hint: "Lễ hội dành cho thiếu nhi, thường có múa lân và đèn ông sao." },
+    { word: "hanoi", hint: "Thủ đô ngàn năm văn hiến của Việt Nam." },
+    { word: "caotrang", hint: "Loại nón truyền thống thường thấy ở miền Bắc." },
+    { word: "dantranh", hint: "Nhạc cụ dân tộc với nhiều dây, thường dùng trong nhạc truyền thống." },
+    { word: "phoco", hint: "Khu phố nổi tiếng với kiến trúc cổ ở Hà Nội." },
+    { word: "saigon", hint: "Tên gọi cũ của thành phố Hồ Chí Minh." },
+    { word: "chualinhung", hint: "Ngôi chùa nổi tiếng ở Đà Nẵng, có tượng Phật Quan Âm lớn." },
+    { word: "caodai", hint: "Tôn giáo đặc trưng xuất phát từ Tây Ninh." },
+    { word: "tugiac", hint: "Tên gọi khác của chiếc nón lá truyền thống." },
+    { word: "hoian", hint: "Phố cổ nổi tiếng với đèn lồng và di sản thế giới." },
+    { word: "bentre", hint: "Tỉnh miền Tây nổi tiếng với dừa." },
+    { word: "cuchitunnel", hint: "Địa đạo nổi tiếng ở miền Nam, di tích lịch sử thời chiến tranh." },
+    { word: "tugom", hint: "Làng nghề truyền thống nổi tiếng ở Bát Tràng." },
+    { word: "caolanh", hint: "Thành phố thuộc tỉnh Đồng Tháp, nổi tiếng với sen." },
+    { word: "banhxeo", hint: "Món bánh đặc sản miền Trung và miền Nam, vỏ giòn, nhân tôm thịt." },
+    { word: "chungcake", hint: "Tên tiếng Anh của món bánh truyền thống ngày Tết." },
+    { word: "sapa", hint: "Thị trấn nổi tiếng với ruộng bậc thang và khí hậu mát mẻ ở Lào Cai." },
+    { word: "tayninh", hint: "Nơi xuất phát của đạo Cao Đài, nổi tiếng với núi Bà Đen." },
+    { word: "dalat", hint: "Thành phố ngàn hoa, nổi tiếng với khí hậu ôn hòa và hồ Xuân Hương." },
+    { word: "myson", hint: "Khu di tích tháp Chăm nổi tiếng ở Quảng Nam." },
+    { word: "vungtau", hint: "Thành phố biển nổi tiếng gần Sài Gòn, có tượng Chúa Kitô lớn." },
+    { word: "bennghe", hint: "Tên một con kênh nổi tiếng ở Sài Gòn." },
+    { word: "camau", hint: "Tỉnh cực Nam của Việt Nam, nổi tiếng với rừng U Minh." },
+    { word: "phuquoc", hint: "Hòn đảo lớn nhất Việt Nam, nổi tiếng với nước mắm và bãi biển đẹp." },
+    { word: "langsen", hint: "Lễ hội truyền thống lớn ở Bắc Ninh, gắn với Quan họ." },
+    { word: "quangninh", hint: "Tỉnh có vịnh Hạ Long, di sản thiên nhiên thế giới." },
+    { word: "bavi", hint: "Dãy núi nổi tiếng gần Hà Nội, có vườn quốc gia." },
+    { word: "nghean", hint: "Quê hương của Chủ tịch Hồ Chí Minh." },
+    { word: "tuyenquang", hint: "Nơi tổ chức lễ hội Thành Tuyên với đèn trung thu khổng lồ." },
+    { word: "yenbai", hint: "Nơi có ruộng bậc thang Mù Cang Chải nổi tiếng." },
+    { word: "bacninh", hint: "Nơi phát tích dân ca Quan họ." },
+    { word: "huefestival", hint: "Lễ hội văn hóa nghệ thuật lớn tổ chức định kỳ ở cố đô." },
+    { word: "phongnha", hint: "Động nổi tiếng ở Quảng Bình, di sản thiên nhiên thế giới." },
+    { word: "trangan", hint: "Quần thể danh thắng nổi tiếng ở Ninh Bình, di sản thế giới." },
+    { word: "cailuong", hint: "Loại hình nghệ thuật sân khấu truyền thống miền Nam." },
+    { word: "cheo", hint: "Loại hình nghệ thuật sân khấu truyền thống miền Bắc." },
+    { word: "tuong", hint: "Loại hình nghệ thuật sân khấu truyền thống miền Trung." },
+    { word: "bactrungnam", hint: "Cụm từ chỉ ba miền lớn của Việt Nam." },
+    { word: "banhcuon", hint: "Món ăn sáng phổ biến ở miền Bắc, làm từ bột gạo hấp mỏng." },
+    { word: "caolau", hint: "Món mì đặc sản nổi tiếng của Hội An." },
+    { word: "banhda", hint: "Loại bánh tráng nướng giòn, thường ăn kèm bún chả." },
+    { word: "muine", hint: "Khu du lịch nổi tiếng với đồi cát ở Bình Thuận." },
+    { word: "chaca", hint: "Món cá nướng nổi tiếng ở Hà Nội, thường ăn với bún và rau thơm." },
+    { word: "dinhdoclap", hint: "Di tích lịch sử nổi tiếng ở TP.HCM, nơi diễn ra sự kiện 30/4/1975." },
+    { word: "banhgio", hint: "Món bánh làm từ bột gạo, nhân thịt, hình chóp, ăn sáng phổ biến." },
+    { word: "coto", hint: "Hòn đảo du lịch nổi tiếng ở Quảng Ninh." },
+    { word: "baidinh", hint: "Quần thể chùa lớn nhất Việt Nam, nằm ở Ninh Bình." },
+    { word: "banhkhuc", hint: "Món bánh làm từ lá khúc, nhân đậu xanh, thịt mỡ, đặc sản Hà Nội." },
+    { word: "caolanh", hint: "Thành phố nổi tiếng với sen ở Đồng Tháp." },
+    { word: "banhtrang", hint: "Loại bánh mỏng làm từ bột gạo, dùng cuốn các món ăn miền Nam." },
+    { word: "banhbo", hint: "Món bánh ngọt, xốp, đặc sản miền Nam." },
+    { word: "banhcam", hint: "Món bánh tròn, chiên giòn, nhân đậu xanh, đặc sản miền Nam." },
+    { word: "banhphu", hint: "Món bánh truyền thống của người Hoa ở Chợ Lớn, TP.HCM." },
+    { word: "banhduc", hint: "Món bánh làm từ bột gạo, ăn với nước mắm hoặc mật mía." },
+    { word: "banhday", hint: "Món bánh truyền thống làm từ gạo nếp, tượng trưng cho trời." },
+    { word: "banhbao", hint: "Món bánh hấp, nhân thịt, trứng, phổ biến ở Việt Nam." },
+    { word: "banhchao", hint: "Món bánh chiên giòn, nhân tôm thịt, đặc sản miền Tây." },
 ];
