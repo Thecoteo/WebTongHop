@@ -6,8 +6,26 @@ const gameModal = document.querySelector(".game-modal");
 const playAgainBtn = gameModal.querySelector("button");
 
 // Initializing game variables
-let currentWord, correctLetters, wrongGuessCount;
+let currentWord, currentDisplay, correctLetters, wrongGuessCount;
 const maxGuesses = 6;
+
+// Thêm biến đếm số thứ tự câu hỏi
+let currentIndex = 0;
+const totalQuestions = wordList.length;
+
+// Thêm phần tử hiển thị số lượng câu hỏi vào HTML (nếu chưa có)
+const container = document.querySelector('.container');
+let questionCounter = document.createElement('div');
+questionCounter.className = 'question-counter';
+questionCounter.style.textAlign = 'center';
+questionCounter.style.width = '100%';
+questionCounter.style.fontWeight = 'bold';
+questionCounter.style.marginBottom = '10px';
+container.insertBefore(questionCounter, container.firstChild);
+
+function updateQuestionCounter() {
+    questionCounter.innerText = `Câu ${currentIndex + 1} / ${totalQuestions}`;
+}
 
 const resetGame = () => {
     // Ressetting game variables and UI elements
@@ -20,12 +38,16 @@ const resetGame = () => {
     gameModal.classList.remove("show");
 }
 
+// Sửa getRandomWord để cập nhật số thứ tự câu hỏi
 const getRandomWord = () => {
     // Selecting a random word and hint from the wordList
-    const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
+    currentIndex = Math.floor(Math.random() * wordList.length);
+    const { word, display, hint } = wordList[currentIndex];
     currentWord = word; // Making currentWord as random word
+    currentDisplay = display;
     document.querySelector(".hint-text b").innerText = hint;
     resetGame();
+    updateQuestionCounter();
 }
 
 const gameOver = (isVictory) => {
@@ -33,7 +55,7 @@ const gameOver = (isVictory) => {
     const modalText = isVictory ? `You found the word:` : 'The correct word was:';
     gameModal.querySelector("img").src = `${isVictory ? 'victory' : 'lost'}.gif`;
     gameModal.querySelector("h4").innerText = isVictory ? 'Congrats!' : 'Game Over!';
-    gameModal.querySelector("p").innerHTML = `${modalText} <b>${currentWord}</b>`;
+    gameModal.querySelector("p").innerHTML = `${modalText} <b>${currentDisplay}</b>`;
     gameModal.classList.add("show");
 }
 
@@ -68,6 +90,9 @@ for (let i = 97; i <= 122; i++) {
     keyboardDiv.appendChild(button);
     button.addEventListener("click", (e) => initGame(e.target, String.fromCharCode(i)));
 }
+
+// Đảm bảo gọi updateQuestionCounter() khi bắt đầu game
+updateQuestionCounter();
 
 getRandomWord();
 playAgainBtn.addEventListener("click", getRandomWord);
