@@ -36,6 +36,19 @@ const pressedKey = (e) => {
     if(allKeys.includes(e.key)) playTune(e.key);
 }
 
+const autoPlayCheckbox = document.getElementById("autoPlayCheckbox");
+let mp3Audio = new Audio("FlowerDance.mp3");
+mp3Audio.loop = true;
+
+autoPlayCheckbox.addEventListener("change", function(e) {
+    if (autoPlayCheckbox.checked) {
+        mp3Audio.currentTime = 0;
+        mp3Audio.play();
+    } else {
+        mp3Audio.pause();
+    }
+});
+
 keysCheckbox.addEventListener("click", showHideKeys);
 volumeSlider.addEventListener("input", handleVolume);
 document.addEventListener("keydown", pressedKey);
