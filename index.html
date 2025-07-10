@@ -63,6 +63,18 @@
                       <span class="menu-label">Rắn săn mồi</span>
                     </a>
                   </li>
+                  <li class="menu-item">
+                    <a href="#" class="menu-link" data-menu="piano" onclick="showApp('piano')">
+                      <span class="material-symbols-rounded">piano</span>
+                      <span class="menu-label">Playable Piano</span>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#" class="menu-link" data-menu="image-editor" onclick="showApp('image-editor')">
+                      <span class="material-symbols-rounded">image</span>
+                      <span class="menu-label">Image Editor</span>
+                    </a>
+                  </li>
                 </ul>
               </div>
 
@@ -129,6 +141,10 @@
           target = document.querySelector('.menu-link[data-menu="memory"]');
         } else if(menu === 'snake') {
           target = document.querySelector('.menu-link[data-menu="snake"]');
+        } else if(menu === 'piano') {
+          target = document.querySelector('.menu-link[data-menu="piano"]');
+        } else if(menu === 'image-editor') {
+          target = document.querySelector('.menu-link[data-menu="image-editor"]');
         }
         if(target) target.classList.add('active');
       }
@@ -141,6 +157,7 @@
         if (personalContent) personalContent.style.display = 'none';
         if (personalTitle) personalTitle.style.display = 'none';
         // Hiển thị đúng mục được chọn
+        var iframe;
         if (app === 'drawing') {
           var iframe = document.createElement('iframe');
           iframe.src = '/WebTongHop/indexDraw.html';
@@ -168,6 +185,30 @@
         } else if (app === 'snake') {
           var iframe = document.createElement('iframe');
           iframe.src = '/WebTongHop/indexSnake.html';
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          iframe.style.borderRadius = '40px';
+          iframe.style.background = '#fff';
+          iframe.style.display = 'block';
+          iframe.setAttribute('frameborder', '0');
+          iframe.setAttribute('allowfullscreen', '');
+          container.appendChild(iframe);
+          container.style.display = 'flex';
+        } else if (app === 'piano') {
+          iframe = document.createElement('iframe');
+          iframe.src = './piano/index.html';
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          iframe.style.borderRadius = '40px';
+          iframe.style.background = '#fff';
+          iframe.style.display = 'block';
+          iframe.setAttribute('frameborder', '0');
+          iframe.setAttribute('allowfullscreen', '');
+          container.appendChild(iframe);
+          container.style.display = 'flex';
+        } else if (app === 'image-editor') {
+          iframe = document.createElement('iframe');
+          iframe.src = './image-editor/index.html';
           iframe.style.width = '100%';
           iframe.style.height = '100%';
           iframe.style.borderRadius = '40px';
