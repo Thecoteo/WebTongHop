@@ -15,7 +15,7 @@ const wordList = [
     { word: "hoian", hint: "Phố cổ nổi tiếng với đèn lồng và di sản thế giới." },
     { word: "bentre", hint: "Tỉnh miền Tây nổi tiếng với dừa." },
     { word: "cuchitunnel", hint: "Địa đạo nổi tiếng ở miền Nam, di tích lịch sử thời chiến tranh." },
-    { word: "tugom", hint: "Làng nghề truyền thống nổi tiếng ở Bát Tràng." },
+    { word: "battrang", hint: "Làng nghề truyền thống nổi tiếng ở Bát Tràng." },
     { word: "caolanh", hint: "Thành phố thuộc tỉnh Đồng Tháp, nổi tiếng với sen." },
     { word: "banhxeo", hint: "Món bánh đặc sản miền Trung và miền Nam, vỏ giòn, nhân tôm thịt." },
     { word: "chungcake", hint: "Tên tiếng Anh của món bánh truyền thống ngày Tết." },
