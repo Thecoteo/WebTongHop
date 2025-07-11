@@ -1,0 +1,82 @@
+body {
+    background: linear-gradient(120deg, #232526 0%, #414345 100%);
+    color: #fff;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    transition: background 1s;
+    animation: bgmove 10s linear infinite alternate;
+}
+@keyframes bgmove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+h1 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 2.7em;
+    letter-spacing: 4px;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    font-weight: bold;
+    text-shadow: 2px 4px 16px #000a, 0 1px 0 #fff2, 0 0 18px #00ffe0aa;
+}
+
+#pong {
+    display: block;
+    margin: 0 auto;
+    background: #181818;
+    border: 5px solid;
+    border-image: linear-gradient(90deg, #00ffe0, #ffb300, #00bfff, #00ffe0) 1;
+    border-radius: 22px;
+    box-shadow: 0 8px 60px #000a, 0 0 0 10px #fff1;
+    transition: box-shadow 0.3s, border 0.5s;
+}
+#pong:hover {
+    box-shadow: 0 16px 120px #00ffe0, 0 0 0 16px #fff2;
+    border-image: linear-gradient(90deg, #ffb300, #00ffe0, #00bfff, #ffb300) 1;
+}
+
+.score-glow {
+    font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+    font-size: 2.5em;
+    color: #fff;
+    text-shadow: 0 0 18px #00ffe0, 0 0 8px #00bfff, 0 2px 8px #000a;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.controls {
+    margin-top: 18px;
+    color: #fff;
+    font-size: 1.1em;
+    opacity: 0.85;
+    text-shadow: 0 2px 8px #000a;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+#popup {
+    animation: popupAppear 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes popupAppear {
+    0% { transform: scale(0.7) translate(-50%,-50%); opacity:0; }
+    100% { transform: scale(1) translate(-50%,-50%); opacity:1; }
+}
+#restart-btn:hover {
+    background: linear-gradient(90deg,#00bfff,#00ffe0);
+    color: #111;
+    box-shadow: 0 4px 16px #00ffe0cc;
+}
+#fireworks {
+    pointer-events: none;
+    z-index: 20;
+}
+img[alt="Pong Logo"] {
+    filter: drop-shadow(0 2px 16px #00ffe0) drop-shadow(0 0 8px #fff2);
+    transition: filter 0.3s;
+}
+img[alt="Pong Logo"]:hover {
+    filter: drop-shadow(0 2px 32px #00ffe0) drop-shadow(0 0 16px #fff2);
+} 
