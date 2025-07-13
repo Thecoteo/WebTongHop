@@ -187,8 +187,20 @@
           iframe.src = 'indexHang.html';
         } else if (app === 'pong') {
           iframe.src = 'indexPong.html';
+          if (container) {
+            container.style.display = 'flex';
+            container.style.justifyContent = 'center';
+            container.style.alignItems = 'center';
+            container.style.height = 'calc(100vh - 60px)';
+          }
         } else if (app === 'personal') {
           iframe.src = 'indexPerson.html';
+          if (container) {
+            container.style.display = 'flex';
+            container.style.justifyContent = 'center';
+            container.style.alignItems = 'center';
+            container.style.height = 'calc(100vh - 60px)';
+          }
         } else {
           return; // Không tạo nếu không đúng mục
         }
