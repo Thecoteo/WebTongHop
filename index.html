@@ -181,7 +181,19 @@
         if (personalTitle) personalTitle.style.display = 'none';
 
         var iframe;
-        if (app === 'drawing') {
+        if (app === 'Person') {
+          iframe = document.createElement('iframe');
+          iframe.src = 'indexPerson.html';
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          iframe.style.borderRadius = '40px';
+          iframe.style.background = '#fff';
+          iframe.style.display = 'block';
+          iframe.setAttribute('frameborder', '0');
+          iframe.setAttribute('allowfullscreen', '');
+          container.appendChild(iframe);
+          container.style.display = 'flex'; // <-- BẬT LẠI container
+              } else if(app === 'drawing') {
           iframe = document.createElement('iframe');
           iframe.src = 'indexDraw.html';
           iframe.style.width = '100%';
