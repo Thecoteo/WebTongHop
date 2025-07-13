@@ -106,16 +106,9 @@
 
             <!-- Site main content -->
             <div class="main-content">
-              <h1 class="page-title" id="personal-title">Thông tin cá nhân</h1>
-              <div class="highlight-link" id="personal-highlight" style="display:none;">
-                <a href="indexPerson.html" class="menu-link">
-                  <span class="material-symbols-rounded">person</span>
-                  <span class="menu-label">Cùng tìm hiểu về tôi nhé!</span>
-                </a>
-              </div>
-              <div class="app-viewer-container" id="app-viewer-container" style="display:none;">
-                <div id="personal-content" style="display: flex; justify-content: center; align-items: center;">
-                  <iframe id="personal-iframe" src="indexPerson.html" frameborder="0" allowfullscreen style="width:1200px;max-width:100vw;height:800px;max-height:80vh;border-radius:40px;background:#fff;display:block;"></iframe>
+              <div class="app-viewer-container" id="app-viewer-container" style="display:block; width:100%; height:calc(100vh - 60px); box-sizing:border-box;">
+                <div id="personal-content" style="display: block; width: 100%; height: 100%;">
+                  <iframe id="personal-iframe" src="indexPerson.html" style="width:100%; height:100%; min-height:600px; min-width:900px; max-width:100vw; max-height:100vh; border-radius:40px; background:#fff; display:block; border:none;"></iframe>
                 </div>
               </div>
             </div>
@@ -166,125 +159,51 @@
         if(target) target.classList.add('active');
       }
       function showApp(app) {
+        setActiveMenu(app); // Đảm bảo chỉ mục đang chọn sáng
         var container = document.getElementById('app-viewer-container');
-        var personalContent = document.getElementById('personal-content');
-        var personalTitle = document.getElementById('personal-title');
-        // Ẩn tất cả trước
-        if (container) { 
-          container.style.display = 'none'; 
+        // Xóa sạch nội dung cũ trước khi thêm mới
+        if (container) {
           container.innerHTML = '';
-          // Đặt lại style về mặc định khi chuyển mục
-          container.style.justifyContent = '';
-          container.style.alignItems = '';
-        }
-        if (personalContent) personalContent.style.display = 'none';
-        if (personalTitle) personalTitle.style.display = 'none';
-
-        var iframe;
-        if (app === 'Person') {
-          iframe = document.createElement('iframe');
-          iframe.src = 'indexPerson.html';
-          iframe.style.width = '100%';
-          iframe.style.height = '100%';
-          iframe.style.borderRadius = '40px';
-          iframe.style.background = '#fff';
-          iframe.style.display = 'block';
-          iframe.setAttribute('frameborder', '0');
-          iframe.setAttribute('allowfullscreen', '');
-          container.appendChild(iframe);
-          container.style.display = 'flex'; // <-- BẬT LẠI container
-              } else if(app === 'drawing') {
-          iframe = document.createElement('iframe');
-          iframe.src = 'indexDraw.html';
-          iframe.style.width = '100%';
-          iframe.style.height = '100%';
-          iframe.style.borderRadius = '40px';
-          iframe.style.background = '#fff';
-          iframe.style.display = 'block';
-          iframe.setAttribute('frameborder', '0');
-          iframe.setAttribute('allowfullscreen', '');
-          container.appendChild(iframe);
-          container.style.display = 'flex'; // <-- BẬT LẠI container
-        } else if (app === 'memory') {
-          iframe = document.createElement('iframe');
-          iframe.src = 'indexMemory.html';
-          iframe.style.width = '100%';
-          iframe.style.height = '100%';
-          iframe.style.borderRadius = '40px';
-          iframe.style.background = '#fff';
-          iframe.style.display = 'block';
-          iframe.setAttribute('frameborder', '0');
-          iframe.setAttribute('allowfullscreen', '');
-          container.appendChild(iframe);
           container.style.display = 'flex';
-        } else if (app === 'snake') {
-          iframe = document.createElement('iframe');
-          iframe.src = 'indexSnake.html';
-          iframe.style.width = '100%';
-          iframe.style.height = '100%';
-          iframe.style.borderRadius = '40px';
-          iframe.style.background = '#fff';
-          iframe.style.display = 'block';
-          iframe.setAttribute('frameborder', '0');
-          iframe.setAttribute('allowfullscreen', '');
-          container.appendChild(iframe);
-          container.style.display = 'flex';
-        } else if (app === 'piano') {
-          iframe = document.createElement('iframe');
-          iframe.src = 'indexPiano.html';
-          iframe.style.width = '100%';
-          iframe.style.height = '100%';
-          iframe.style.borderRadius = '40px';
-          iframe.style.background = '#fff';
-          iframe.style.display = 'block';
-          iframe.setAttribute('frameborder', '0');
-          iframe.setAttribute('allowfullscreen', '');
-          container.appendChild(iframe);
-          container.style.display = 'flex';
-        } else if (app === 'image-editor') {
-          iframe = document.createElement('iframe');
-          iframe.src = 'indexImage.html';
-          iframe.style.width = '100%';
-          iframe.style.height = '100%';
-          iframe.style.borderRadius = '40px';
-          iframe.style.background = '#fff';
-          iframe.style.display = 'block';
-          iframe.setAttribute('frameborder', '0');
-          iframe.setAttribute('allowfullscreen', '');
-          container.appendChild(iframe);
-          container.style.display = 'flex';
-        } else if (app === 'hangman') {
-          iframe = document.createElement('iframe');
-          iframe.src = 'indexHang.html';
-          iframe.style.width = '100%';
-          iframe.style.height = '100%';
-          iframe.style.borderRadius = '40px';
-          iframe.style.background = '#fff';
-          iframe.style.display = 'block';
-          iframe.setAttribute('frameborder', '0');
-          iframe.setAttribute('allowfullscreen', '');
-          container.appendChild(iframe);
-          container.style.display = 'flex';
-        } else if (app === 'pong') {
-          iframe = document.createElement('iframe');
-          iframe.src = 'indexPong.html';
-          iframe.style.width = '800px';
-          iframe.style.height = '500px';
-          iframe.style.borderRadius = '40px';
-          iframe.style.background = '#fff';
-          iframe.style.display = 'block';
-          iframe.style.margin = '0 auto';
-          iframe.setAttribute('frameborder', '0');
-          iframe.setAttribute('allowfullscreen', '');
-          container.appendChild(iframe);
-          container.style.display = 'flex';
+          container.style.width = '100%';
+          container.style.height = 'calc(100vh - 60px)';
+          container.style.boxSizing = 'border-box';
           container.style.justifyContent = 'center';
           container.style.alignItems = 'center';
-        } else if (app === 'personal') {
-          if (personalTitle) personalTitle.style.display = 'block';
-          if (personalContent) personalContent.style.display = 'flex';
         }
-        setActiveMenu(app);
+
+        var iframe = document.createElement('iframe');
+        if (app === 'drawing') {
+          iframe.src = 'indexDraw.html';
+        } else if (app === 'memory') {
+          iframe.src = 'indexMemory.html';
+        } else if (app === 'snake') {
+          iframe.src = 'indexSnake.html';
+        } else if (app === 'piano') {
+          iframe.src = 'indexPiano.html';
+        } else if (app === 'image-editor') {
+          iframe.src = 'indexImage.html';
+        } else if (app === 'hangman') {
+          iframe.src = 'indexHang.html';
+        } else if (app === 'pong') {
+          iframe.src = 'indexPong.html';
+        } else if (app === 'personal') {
+          iframe.src = 'indexPerson.html';
+        } else {
+          return; // Không tạo nếu không đúng mục
+        }
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.minHeight = '600px';
+        iframe.style.minWidth = '900px';
+        iframe.style.maxWidth = '100vw';
+        iframe.style.maxHeight = '100vh';
+        iframe.style.borderRadius = '40px';
+        iframe.style.background = '#fff';
+        iframe.style.display = 'block';
+        iframe.style.border = 'none';
+
+        if (container) container.appendChild(iframe);
       }
       function setupPersonalMenu() {
         var dashboardMenu = document.querySelector('.menu-link[data-menu="personal"]');
